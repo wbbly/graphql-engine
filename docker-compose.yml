@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  postgres:
+    image: postgres
+    restart: always
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    depends_on:
+      - postgres
+  graphql-engine:
+    image: hasura/graphql-engine:v1.0.0-alpha42
+    depends_on:
+      - "postgres"
+    restart: always
