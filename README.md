@@ -13,7 +13,13 @@ This Docker Compose setup runs [Hasura GraphQL Engine](https://github.com/hasura
 - Copy `docker-compose.override.yml.dist` to `docker-compose.override.yml`
 - Edit `docker-compose.override.yml` and change `PGADMIN_DEFAULT_EMAIL` and `PGADMIN_DEFAULT_PASSWORD` to something secure
 - Edit `docker-compose.override.yml` and change `HASURA_GRAPHQL_ADMIN_SECRET` to something secure
-- `docker-compose up -d`
+- `docker-compose up -d --build`
+- Go to the http://localhost:5050 and login to the pgAdmin via `PGADMIN_DEFAULT_EMAIL` and `PGADMIN_DEFAULT_PASSWORD`
+- Add new connection to the postgres sever
+- Drop Cascade all the Schemas and create schema with name `public` with `postgres` owner
+- Restore database using pgadmin_storage/pgadmin@example.com/backup/backup.dump file
+- `docker-compose down`
+- `docker-compose up -d --build`
 
 ## Important endpoints
 
