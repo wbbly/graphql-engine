@@ -17,7 +17,7 @@ This Docker Compose setup runs [Hasura GraphQL Engine](https://github.com/hasura
 - Go to the http://localhost:5050 and login to the pgAdmin via `PGADMIN_DEFAULT_EMAIL` and `PGADMIN_DEFAULT_PASSWORD`
 - Add new connection to the postgres sever
 - Drop Cascade all the Schemas and create schema with name `public` with `postgres` owner
-- Restore database using pgadmin_storage/pgadmin@example.com/backup/backup.dump file
+- Restore database using fixtures/fixtures.dump file
 - `docker-compose down`
 - `docker-compose up -d --build`
 
