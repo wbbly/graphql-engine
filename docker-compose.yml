@@ -2,16 +2,19 @@ version: '3.7'
 services:
   postgres:
     image: postgres
+    networks:
+      - postgres
     restart: always
-    volumes:
-      - ./db_data:/var/lib/postgresql/data
   pgadmin:
     image: dpage/pgadmin4
-    restart: always
-    depends_on:
+    networks:
       - postgres
+    restart: always
   graphql-engine:
     image: hasura/graphql-engine:v1.0.0
-    depends_on:
-      - "postgres"
+    networks:
+      - postgres
     restart: always
+networks:
+  postgres:
+    driver: bridge
