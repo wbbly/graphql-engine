@@ -11,7 +11,7 @@ services:
       - postgres
     restart: always
   graphql-engine:
-    image: hasura/graphql-engine:v1.2.2
+    image: hasura/graphql-engine:v1.3.0
     networks:
       - postgres
     restart: always
