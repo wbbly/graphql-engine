@@ -13,8 +13,6 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: pgadmin@example.com
       PGADMIN_DEFAULT_PASSWORD: admin
-    volumes:
-      - ./pgadmin_storage:/var/lib/pgadmin/storage
   graphql-engine:
     image: hasura/graphql-engine:v1.3.0
     ports:
@@ -22,4 +20,4 @@ services:
     environment:
       HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:changeme@postgres:5432/postgres
       HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
-      # HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
+      HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
